@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Photo Sphere</title>
+    
+    <script src="https://cdn.jsdelivr.net/gh/goat1000/TagCanvas@2.9/tagcanvas.min.js" type="text/javascript"></script>
+
+    <style>
+        /* Basic reset to ensure the canvas looks good */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light grey background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="canvasContainer" style="width: 100%; max-width: 800px; height: 600px; position: relative; margin: 0 auto;">
+        <canvas id="my3DPhotoSphere" width="600" height="600" style="width: 100%; height: 100%;">
+            <p>Your browser does not support the canvas tag.</p>
+        </canvas>
+    </div>
+
+    <div id="tags" style="display: none;">
+        <ul>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/1-3d_sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/2-3d_sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/3-3d_sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/4-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/5-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/6-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/7-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/8-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/9-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/10-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/11-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/12-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/13-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/14-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/15-3d-sphere.png" alt="Img"></a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        function startTagCanvas() {
+            try {
+                // Settings for the sphere
+                var options = {
+                    imageMode: 'both',
+                    imagePosition: 'center',
+                    shape: 'sphere',
+                    initial: [0.05, -0.05], // Slow auto-spin
+                    dragControl: true,      // ENABLE MOUSE DRAG
+                    decel: 0.95,            // Inertia (keeps spinning a bit after drag)
+                    minSpeed: 0.0,
+                    maxSpeed: 0.05,
+                    depth: 0.8,
+                    outlineMethod: 'none',
+                    wheelZoom: true,
+                    noSelect: true          // Prevents highlighting text while dragging
+                };
+                
+                TagCanvas.Start('my3DPhotoSphere', 'tags', options);
+            } catch(e) {
+                document.getElementById('canvasContainer').style.display = 'none';
+                console.error("Canvas failed to load", e);
+            }
+        }
+
+        // Function to handle resizing
+        function resizeCanvas() {
+            var canvas = document.getElementById('my3DPhotoSphere');
+            var container = document.getElementById('canvasContainer');
+            
+            // Make canvas match the container's width
+            if(canvas && container) {
+                canvas.width = container.offsetWidth;
+                canvas.height = container.offsetHeight;
+                // Restart plugin to apply new size
+                startTagCanvas(); 
+            }
+        }
+
+        // Run on Load
+        window.onload = resizeCanvas;
+        
+        // Run on Resize (Responsive)
+        window.addEventListener('resize', resizeCanvas);
+    </script>
+
+</body>
+</html>
