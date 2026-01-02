@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Photo Sphere</title>
     
-    <script src="https://cdn.jsdelivr.net/gh/goat1000/TagCanvas@2.9/tagcanvas.min.js" type="text/javascript"></script>
-
     <style>
-        /* Basic reset to ensure the canvas looks good */
         body {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Light grey background */
+            background-color: #f0f0f0; /* Light grey background to see the sphere clearly */
+            font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            justify-content: center;
+            height: 100vh; /* Full screen height */
         }
     </style>
 </head>
 <body>
 
-    <div id="canvasContainer" style="width: 100%; max-width: 800px; height: 600px; position: relative; margin: 0 auto;">
+    <script src="https://cdn.jsdelivr.net/gh/goat1000/TagCanvas@2.9/tagcanvas.min.js" type="text/javascript"></script>
+
+    <div id="canvasContainer" style="width: 100%; height: 100vh; position: relative; background: white; overflow: hidden;">
         <canvas id="my3DPhotoSphere" width="600" height="600" style="width: 100%; height: 100%;">
             <p>Your browser does not support the canvas tag.</p>
         </canvas>
@@ -30,70 +30,67 @@
 
     <div id="tags" style="display: none;">
         <ul>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/1-3d_sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/2-3d_sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/3-3d_sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/4-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/5-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/6-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/7-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/8-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/9-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/10-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/11-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/12-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/13-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/14-3d-sphere.png" alt="Img"></a></li>
-            <li><a href="#"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/15-3d-sphere.png" alt="Img"></a></li>
+            <li><a href="#" title="Title 1"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/1-3d_sphere.png" alt="Img"> Title 1</a></li>
+            <li><a href="#" title="Title 2"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/2-3d_sphere.png" alt="Img"> Title 2</a></li>
+            <li><a href="#" title="Title 3"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/3-3d_sphere.png" alt="Img"> Title 3</a></li>
+            <li><a href="#" title="Title 4"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/4-3d-sphere.png" alt="Img"> Title 4</a></li>
+            <li><a href="#" title="Title 5"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/5-3d-sphere.png" alt="Img"> Campus</a></li>
+            <li><a href="#" title="Title 6"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/6-3d-sphere.png" alt="Img"> Student Life</a></li>
+            <li><a href="#" title="Title 7"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/7-3d-sphere.png" alt="Img"> Library</a></li>
+            <li><a href="#" title="Title 8"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/8-3d-sphere.png" alt="Img"> Auditorium</a></li>
+            <li><a href="#" title="Title 9"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/9-3d-sphere.png" alt="Img"> Sports</a></li>
+            <li><a href="#" title="Title 10"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/10-3d-sphere.png" alt="Img"> Event 10</a></li>
+            <li><a href="#" title="Title 11"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/11-3d-sphere.png" alt="Img"> Event 11</a></li>
+            <li><a href="#" title="Title 12"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/12-3d-sphere.png" alt="Img"> Event</a></li>
+            <li><a href="#" title="Title 13"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/13-3d-sphere.png" alt="Img"> Gallery 13</a></li>
+            <li><a href="#" title="Title 14"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/14-3d-sphere.png" alt="Img"> Gallery 14</a></li>
+            <li><a href="#" title="Title 15"><img src="https://sigmauniversity.ac.in/wp-content/uploads/2026/01/15-3d-sphere.png" alt="Img"> Gallery 15</a></li>
         </ul>
     </div>
 
     <script type="text/javascript">
         function startTagCanvas() {
             try {
-                // Settings for the sphere
                 var options = {
                     imageMode: 'both',
-                    imagePosition: 'center',
+                    imagePosition: 'top', 
                     shape: 'sphere',
-                    initial: [0.05, -0.05], // Slow auto-spin
-                    dragControl: true,      // ENABLE MOUSE DRAG
-                    decel: 0.95,            // Inertia (keeps spinning a bit after drag)
-                    minSpeed: 0.0,
-                    maxSpeed: 0.05,
-                    depth: 0.8,
-                    outlineMethod: 'none',
-                    wheelZoom: true,
-                    noSelect: true          // Prevents highlighting text while dragging
+                    initial: [0.05, -0.05],
+                    dragControl: true,
+                    decel: 0.95,
+                    wheelZoom: false,
+                    noSelect: true,
+                    
+                    // --- FONT SETTINGS ---
+                    textColour: '#484848BF',    // Grey/Black with transparency
+                    textSize: 10,             
+                    textHeight: 10,           
+                    textFont: 'Impact, "Arial Black", sans-serif', 
+                    weight: true,             
+                    // ---------------------
+
+                    imagePadding: 5,         
+                    depth: 0.8
                 };
                 
                 TagCanvas.Start('my3DPhotoSphere', 'tags', options);
             } catch(e) {
                 document.getElementById('canvasContainer').style.display = 'none';
-                console.error("Canvas failed to load", e);
             }
         }
 
-        // Function to handle resizing
         function resizeCanvas() {
             var canvas = document.getElementById('my3DPhotoSphere');
             var container = document.getElementById('canvasContainer');
-            
-            // Make canvas match the container's width
             if(canvas && container) {
                 canvas.width = container.offsetWidth;
                 canvas.height = container.offsetHeight;
-                // Restart plugin to apply new size
                 startTagCanvas(); 
             }
         }
 
-        // Run on Load
         window.onload = resizeCanvas;
-        
-        // Run on Resize (Responsive)
         window.addEventListener('resize', resizeCanvas);
     </script>
-
 </body>
 </html>
